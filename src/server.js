@@ -16,7 +16,13 @@ const httpServer = http.createServer(app); // http 서버 생성 후 접근 가�
 const wsServer = SocketIO(httpServer); // http 서버를 SocketIO에 전달
 
 wsServer.on("connection", (socket) => {
-	console.log(socket);
+	socket.on("enter_room", (msg, done) => {
+		console.log(msg);
+		setTimeout(() => {
+			done();
+		}, 10000);
+	}); // socket.io 서버에서 이벤트를 받고, 이벤트는 프론트엔드에서 실행됨
+	// frontend emit 에서 전달한 function을 backend에서 제어할 수 있음
 });
 
 const handleListen = () => console.log("Listening on http://localhost:3000"); // 서버가 실행되면 실행될 함수
