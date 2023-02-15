@@ -81,11 +81,6 @@ wsServer.on("connection", (socket) => {
 	});
 
 	socket.on("nickname", (nickname) => (socket["nickname"] = nickname));
-	socket.on("leaveRoom", (roomName) => {
-		socket.leave(roomName);
-		socket.to(roomName).emit("bye", socket.nickname, countRoomUsers(roomName));
-		wsServer.sockets.emit("room_change", publicRooms());
-	});
 });
 
 const handleListen = () => console.log("Listening on http://localhost:3000"); // 서버가 실행되면 실행될 함수

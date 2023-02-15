@@ -4,7 +4,6 @@ const socket = io(); // socket.io-client를 import한 후 io()를 호출하면 s
 const welcomeDiv = document.getElementById("welcomeDiv");
 const roomForm = welcomeDiv.querySelector("form");
 const roomDiv = document.getElementById("roomDiv");
-const leaveRoomBtn = roomDiv.querySelector("#leaveRoomBtn");
 
 roomDiv.hidden = true;
 
@@ -52,15 +51,7 @@ function handleRoomSubmit(event) {
 	roomInput.value = "";
 }
 
-function handleLeaveRoom(event) {
-	event.preventDefault();
-	socket.emit("leaveRoom", roomName);
-	roomDiv.hidden = true;
-	welcomeDiv.hidden = false;
-}
-
 roomForm.addEventListener("submit", handleRoomSubmit);
-leaveRoomBtn.addEventListener("click", handleLeaveRoom);
 
 function setRoomTitle(roomName, userCount) {
 	const h3 = roomDiv.querySelector("h3");
