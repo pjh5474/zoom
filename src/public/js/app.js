@@ -54,6 +54,8 @@ function handleRoomSubmit(event) {
 
 function handleLeaveRoom(event) {
 	event.preventDefault();
+	messagesli = roomDiv.querySelector("ul");
+	messagesli.innerHTML = "";
 	socket.emit("leaveRoom", roomName);
 	roomDiv.hidden = true;
 	welcomeDiv.hidden = false;
@@ -85,6 +87,11 @@ socket.on("bye", (nickname, userCount) => {
 	addMessage(`${nickname} Left!`);
 });
 
+function joinRoom(publicRoom) {
+	roomName = publicRoom;
+	socket.emit("enter_room", roomName, showRoom);
+}
+
 socket.on("room_change", (publicRooms) => {
 	const roomList = welcomeDiv.querySelector("ul");
 	roomList.innerHTML = "";
@@ -93,7 +100,13 @@ socket.on("room_change", (publicRooms) => {
 	}
 	publicRooms.forEach((publicRoom) => {
 		const li = document.createElement("li");
-		li.innerText = publicRoom;
+		const button = document.createElement("button");
+		li.innerText = `Room: ${publicRoom.roomName} with ${publicRoom.userCount} user(s)`;
+		button.addEventListener("click", () => {
+			joinRoom(publicRoom.roomName);
+		});
+		button.innerText = "Join";
+		li.appendChild(button);
 		roomList.append(li);
 	});
 });

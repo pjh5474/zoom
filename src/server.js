@@ -34,7 +34,7 @@ function publicRooms() {
 	const publicRooms = [];
 	rooms.forEach((_, key) => {
 		if (sids.get(key) === undefined) {
-			publicRooms.push(key);
+			publicRooms.push({ roomName: key, userCount: countRoomUsers(key) });
 		}
 	});
 	return publicRooms;
