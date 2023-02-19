@@ -11,7 +11,8 @@ app.set("views", __dirname + "/views");
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => res.render("home"));
-app.get("/*", (req, res) => res.redirect("/"));
+app.get("/settings", (req, res) => res.render("settings"));
+//app.get("/*", (req, res) => res.redirect("/"));
 
 const httpServer = http.createServer(app); // http 서버 생성 후 접근 가능한 express app을 전달
 const wsServer = new Server(httpServer, {
