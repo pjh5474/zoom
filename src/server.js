@@ -40,6 +40,9 @@ wsServer.on("connection", (socket) => {
 	socket.on("ice", (ice, roomName) => {
 		socket.to(roomName).emit("ice", ice);
 	});
+	socket.on("disconnecting", () => {
+		socket.rooms.forEach((room) => socket.to(room).emit("leaveRoom"));
+	});
 });
 const handleListen = () => console.log("Listening on http://localhost:3000"); // 서버가 실행되면 실행될 함수
 httpServer.listen(3000, handleListen); // 서버 실행
