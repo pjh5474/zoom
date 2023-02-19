@@ -27,23 +27,26 @@ instrument(wsServer, {
 });
 
 wsServer.on("connection", (socket) => {
-	socket.on("join_room", (roomName) => {
-		socket.join(roomName);
-		socket.to(roomName).emit("welcome");
+	socket.on("join_room", (room, id) => {
+		socket.join(room);
+		console.log(wsServer.adapter);
+		socket.to(room).emit("welcome", id);
 	});
-
-	socket.on("offer", (offer, roomName) => {
-		socket.to(roomName).emit("offer", offer);
+	socket.on("offer", (offer, room, newbieID, offersId) => {
+		socket.to(newbieID).emit("offer", offer, offersId);
 	});
-
-	socket.on("answer", (answer, roomName) => {
-		socket.to(roomName).emit("answer", answer);
+	socket.on("answer", (offer, offersId, newbieId) => {
+		socket.to(offersId).emit("answer", offer, newbieId);
 	});
-	socket.on("ice", (ice, roomName) => {
-		socket.to(roomName).emit("ice", ice);
+	socket.on("ice", (ice, room, othersId, myId) => {
+		socket.to(othersId).emit("ice", ice, myId);
+	});
+	socket.on("disconnecting", () => {
+		socket.rooms.forEach((room) =>
+			socket.to(room).emit("leaveRoom", socket.id)
+		);
 	});
 });
-
 const handleListen = () => console.log("Listening on http://localhost:3000"); // 서버가 실행되면 실행될 함수
 httpServer.listen(3000, handleListen); // 서버 실행
 

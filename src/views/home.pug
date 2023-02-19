@@ -5,6 +5,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Noom
+        link(rel="shortcut icon", href="public/img/favicon.ico", type="image/x-icon")
         link(rel="stylesheet", href="https://unpkg.com/mvp.css@1.12/mvp.css")
     body 
         header 
@@ -15,8 +16,6 @@ html(lang="en")
                     input(placeholder="room name", required, type="text")
                     button Enter room
 
-                a(href='/settings') Settings
-                    button Settings
 
             div#call
                 div#myStream
@@ -24,7 +23,10 @@ html(lang="en")
                     button#mute Mute
                     button#camera Turn Camera Off
                     select#cameras
-                    video#peerFace(autoplay, playsinline, width="400", height="400")
+            
+                div#othersStream
+                    h3 Hi
+
 
 
         script(src="/socket.io/socket.io.js")
