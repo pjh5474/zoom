@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Noom
+        link(rel="shortcut icon", href="/public/img/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href='/public/css/styles.css')
+    body
+        header
+            h1 Noom
+        main.main-screen
+            div#chatroom
+                div#room-title
+                    h3
+                    button#leaveRoomBtn
+                        i.fas.fa-angle-left.fa-2x
+                ul#message-list
+                div#chat-form
+                    form#changeNickForm
+                        div#nickIcon
+                            i.fa-solid.fa-user-tag
+                        input(placeholder="change nickname", required, type="text")
+                        button Change
+                        
+                    form#msgForm
+                        div#msgIcon
+                            i.fa-solid.fa-message
+                        input(placeholder="message", required, type="text")
+                        button Send
+
+
+            
+                    
+
+
+
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/chatroom.js")
+        script(src='https://kit.fontawesome.com/5e164c00b3.js' crossorigin='anonymous')

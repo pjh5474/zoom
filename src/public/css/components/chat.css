@@ -1,0 +1,227 @@
+#chatroom {
+    background-color: rgba(240, 248, 255, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    height: 80vh;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  #room-title {
+    width: 55vw;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #leaveRoomBtn {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  #leaveRoomBtn:hover {
+    cursor: pointer;
+  }
+  
+  #leaveRoomBtn i {
+    width: 30px;
+    height: 30px;
+  }
+  
+  #room-title h3 {
+    font-size: 40px;
+    font-weight: 600px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  
+  #chatroom ul {
+    background-color: rgba(240, 248, 255, 1);
+    height: 50vh;
+    width: 55vw;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+  }
+  
+  #chatroom ul::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: none;
+    }
+    1% {
+      opacity: 0;
+      transform: translateX(30%);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: none;
+    }
+    1% {
+      opacity: 0;
+      transform: translateX(-30%);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes spin-x {
+    0% {
+      opacity: 0;
+      transform: rotateX(0deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: rotateX(180deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(360deg);
+    }
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .message span {
+    background-color: white;
+    padding: 5px 15px;
+    box-shadow: 0px 2px 2px 2px rgba(10, 0, 0, 0.2);
+  }
+  
+  .others-message {
+    justify-content: flex-start;
+    animation: fadeInLeft 0.4s linear;
+  }
+  
+  .others-message span {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .my-message {
+    justify-content: flex-end;
+    animation: fadeInRight 0.4s linear;
+  }
+  
+  .my-message span {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .system-message {
+    justify-content: center;
+    border-radius: 10px;
+    animation: spin-x 0.4s linear;
+  }
+  
+  .system-message span {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  #chat-form {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    padding-top: 10px;
+    border-top: 1px solid rgba(10, 0, 0, 0.2);
+    justify-content: space-between;
+  }
+  
+  #msgForm {
+    width: 70%;
+    padding: 10px 30px;
+    display: flex;
+  }
+  
+  #msgForm input {
+    width: 80%;
+    margin-right: 10px;
+  }
+  
+  #msgForm button {
+    border: none;
+    width: 15%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+  }
+  
+  #changeNickForm {
+    width: 40%;
+    padding: 10px 30px;
+    display: flex;
+  }
+  
+  #nickIcon {
+    width: 40px;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornflowerblue;
+  }
+  
+  #msgIcon {
+    width: 40px;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornflowerblue;
+  }
+  
+  #changeNickForm input {
+    width: 60%;
+    margin-right: 10px;
+  }
+  
+  #changeNickForm button {
+    border: none;
+    width: 25%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+  }
+  
+  #changeNickForm button:hover {
+    cursor: pointer;
+  }
+  
+  #msgForm button:hover {
+    cursor: pointer;
+  }

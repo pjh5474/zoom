@@ -1,35 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 @import "reset.css";
 @import "variables.css";
-
 /* Components */
-@import "components/status-bar.css";
-@import "components/nav-bar.css";
-@import "components/screen-header.css";
-@import "components/user-component.css";
-@import "components/badge.css";
-@import "components/icon-row.css";
-@import "components/alt-screen-header.css";
-@import "components/no-mobile.css";
+@import "components/chat.css";
+@import "components/toast.css";
 
 /* Screens */
-@import "screens/login.css";
-@import "screens/friends.css";
-@import "screens/find.css";
-@import "screens/more.css";
-@import "screens/settings.css";
-@import "screens/chat.css";
+@import "screens/welcome.css";
+@import "screens/chatroom.css";
+@import "screens/vcroom.css";
 
 body {
-    color: #2e363e;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 100px;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
 }
 
-body::-webkit-scrollbar{
-    display: none;
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 48px;
 }
 
 .main-screen {
-    padding: 0px var(--horizontal-space);
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

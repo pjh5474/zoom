@@ -6,26 +6,47 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Noom
         link(rel="shortcut icon", href="public/img/favicon.ico", type="image/x-icon")
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css@1.12/mvp.css")
+        link(rel="stylesheet", href='/public/css/styles.css')
     body 
         header 
             h1 Noom
         main
+            div#toast
             div#welcome
-                form
-                    input(placeholder="room name", required, type="text")
-                    button Enter room
+                div#welcome-userinfo
+                    h3 Set your NickName
+                    div#welcome-userinfo__title
+                        h4 You can change your nickname later !
+                        h4 if you don't set it, your nickname will be "Anonymous_{your sid id}"
+                        h4 When you enter the chatroom and there is a same nickname, your nickname can be changed.
+                    form#welcome-userinfo__form
+                        input(placeholder="nickname", required, type="text")
+                        button Set Nickname
+                
+                div#roomForm
+                    div#welcome-socketIO
+                        form#welcome-socketIO__form
+                            div#welcome-socketIO__form__title
+                                h4 Group Chatting with Socket.io
+                                img(src="https://cdn.icon-icons.com/icons2/2389/PNG/512/socket_io_logo_icon_144874.png")
+                            input(placeholder="room name", required, type="text")
+                            button 
+                                h4 Enter chatroom 
+    
+                    div#welcome-webRTC
+                        form#welcome-webRTC__form
+                            div#welcome-webRTC__form__title
+                                h4 1:1 p2p video chat with webRTC
+                                img(src="https://styles.redditmedia.com/t5_2unw6/styles/communityIcon_3qc66h3yt5u01.png?width=256&v=enabled&s=9fc9266ecb17da3e88a715ea5356b76bcec2ad96")
+                            input(placeholder="room name", required, type="text")
+                            button Enter 1:1 private video chat
 
+                div#OpenRoomDiv
+                    div#OpenRoomTitle
+                        h4 Chat Rooms 
+                    div#OpenRoomList
+                        ul#roomsList
 
-            div#call
-                div#myStream
-                    video#myFace(autoplay, playsinline, width="400", height="400")
-                    button#mute Mute
-                    button#camera Turn Camera Off
-                    select#cameras
-
-                div#otherStream
-                    video#otherFace(autoplay, playsinline, width="400", height="400")
             
                     
 
@@ -33,3 +54,4 @@ html(lang="en")
 
         script(src="/socket.io/socket.io.js")
         script(src="public/js/app.js")
+        script(src='https://kit.fontawesome.com/5e164c00b3.js' crossorigin='anonymous')

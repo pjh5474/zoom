@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Noom
+        link(rel="shortcut icon", href="/public/img/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href='/public/css/styles.css')
+    body 
+        header 
+            h1 1 : 1  P2P Video Chat with webRTC
+        main
+            div#toast
+            div#room-title
+                h3
+                button#leaveRoomBtn
+                    i.fas.fa-angle-left.fa-2x
+            div#videochat-room
+                div#chatroom
+                    ul#message-list
+                    div#chat-form  
+                        form#msgForm
+                            div#msgIcon
+                                i.fa-solid.fa-message
+                            input(placeholder="message", required, type="text")
+                            button Send
+                div#videochat
+                    div#myStream
+                        video#myFace(autoplay, playsinline, width="400", height="400")
+                        div#video-btn
+                            button#mute Mute
+                            button#camera Turn Camera Off
+                            select#cameras
+
+                    div#otherStream
+                        video#otherFace(autoplay, playsinline, width="400", height="400")
+
+                
+
+            
+                    
+
+
+
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/vc-room.js")
+        script(src='https://kit.fontawesome.com/5e164c00b3.js' crossorigin='anonymous')
